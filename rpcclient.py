@@ -125,7 +125,8 @@ def getbalance_MP(addr, propertyid):
     return host.call("omni_getbalance", addr, propertyid)
 
 def getallbalancesforaddress_MP(addr):
-    return host.call("getallbalancesforaddress_MP", addr)
+     print(addr)
+     return host.call("omni_getallbalancesforaddress", addr)
 
 def getallbalancesforid_MP(propertyid):
     return host.call("omni_getallbalancesforid", propertyid)

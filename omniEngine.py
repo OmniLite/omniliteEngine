@@ -52,10 +52,21 @@ else:
   printdebug(("Processing started at",now), 0)
 
   #block with first MP transaction
+
+  # first known testnet transaction as determined through OP_RETURN containing omni
+  # txid: 6e379ffd4d82698c69cad21dee10062ec832e552f9690dfcde69e68c0b5dcf56
+  # blockhash: 03eed1ea0f2633064cbf479b1562d03496baa29d798debf9170f19c2c3465696
+  # block: 1843740
+
+  # first known mainnet transaction
+  # txid: 09151f29be5f2c93e022dccd855183cd1b03b632eaa9105e071d85f151cbab87
+  # blockhash: 53399d5b77ff52d1f672be9b482598fd66f35e9f302d2c53f24b5bb5d089b7cc
+  # block: 2093636
+
   if config.TESTNET:
-    firstMPtxBlock=263137
+    firstMPtxBlock=1843740
   else:
-    firstMPtxBlock=252317
+    firstMPtxBlock=2093636
 
   #get last known block processed from db
   currentBlock=dbSelect("select max(blocknumber) from blocks", None)[0][0]
@@ -102,8 +113,8 @@ else:
     updateRan=True
 
   #get highest TxDBSerialNum (number of rows in the Transactions table)
-  #22111443 btc tx's before block 252317
-  TxDBSerialNum=dbSelect('select coalesce(max(txdbserialnum), 22111443) from transactions')[0][0]+1
+  #78681427 ltc tx's before block 2093636
+  TxDBSerialNum=dbSelect('select coalesce(max(txdbserialnum), 78681427) from transactions')[0][0]+1
 
   #main loop, process new blocks
   while currentBlock <= endBlock:
@@ -130,12 +141,12 @@ else:
         printdebug(("Block",height,"of",endBlock, "(took", timeDelta.microseconds, "microseconds, blocks left:", blocksLeft, ", eta", projectedTime,")"),1)
         lastStatusUpdateTime=statusUpdateTime
 
-      #Process Bitcoin Transacations
-      Protocol="Bitcoin"
+      #Process Litecoin Transacations
+      Protocol="Litecoin"
 
       #Find number of tx's in block
       txcount=len(block_data['result']['tx'])
-      printdebug((txcount,"BTC tx"), 1)
+      printdebug((txcount,"LTC tx"), 1)
 
       #Write the blocks table row
       insertBlock(block_data, Protocol, height, txcount)
@@ -191,13 +202,6 @@ else:
       expireAccepts(height)
       #check active crowdsales and update json if the endtime has passed (based on block time)
       expireCrowdsales(block_data['result']['time'], Protocol)
-      #exodus address generates dev msc, sync our balance to match the generated balanace
-      if config.TESTNET:
-        syncAddress('mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv', Protocol)
-        #upadate temp orderbook
-        #updateorderblob()
-      else:
-        syncAddress('1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P', Protocol)
 
       #Also make sure we update the json data in SmartProperties table used by exchange view
       updateProperty(1,"Omni")
@@ -232,7 +236,7 @@ else:
   #/while loop.  Finished processing all current blocks.
   try:
     #Also make sure we update the json data in SmartProperties
-    updateProperty(0,"Bitcoin")
+    updateProperty(0,"Litecoin")
     dbCommit()
   except:
     pass

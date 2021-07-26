@@ -32,7 +32,7 @@ def getTxClass(txid):
     #Class A = 1 , exodus_marker + no opreturn/no multisig
     #Class B = 2 , exodus marker + multisig
     #Class C = 3 , opreturn
-    exodus_array = ['1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P','mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv']
+    exodus_array = ['LTceXoduS2cetpWJSe47M25i5oKjEccN1h','QeVAq4mudsSSvyM6mBkd7cUuPsgBBrLq83']
     exodus = False
     opreturn = False
     multisig = False

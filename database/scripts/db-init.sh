@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x -e
-if [[ -z "$OMNIDB_ENGINE_PASSWORD" ]] || [[ -z "$OMNIDB_WWW_PASSWORD" ]] || [ -z "$OMNIDB_DATABASE" ] ; then
- echo "Environment variables OMNIDB_ENGINE_PASSWORD, OMNIDB_WWW_PASSWORD, and OMNIDB_DATABASE must be set"
+if [[ -z $OMNIDB_ENGINE_PASSWORD ]] || [[ -z $OMNIDB_WWW_USER ]] || [[ -z $OMNIDB_WWW_PASSWORD ]] || [ -z $OMNIDB_DATABASE ] || [[ -z $OMNIDB_ENGINE_USER ]] ; then
+ echo "Environment variables OMNIDB_ENGINE_PASSWORD, OMNIDB_WWW_USER, OMNIDB_WWW_PASSWORD, OMNIDB_DATABASE and OMNIDB_ENGINE_USER must be set"
  exit 1
 fi
 OPTIONS="--echo-all -v ON_ERROR_STOP=1"

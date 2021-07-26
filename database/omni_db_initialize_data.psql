@@ -1,11 +1,11 @@
 /* Load the initial known protocols */
 insert into Protocols values (
-	'Bitcoin', 'Bitcoin', 'http://bitcoin.org'
+	'Litecoin', 'Litecoin', 'http://litecoin.org'
 )
 ; 
 
 insert into Protocols values (
-	'Omni', 'Bitcoin', 'http://omnilayer.org'
+	'Omni', 'Litecoin', 'http://omnilite.org'
 )
 ;
 
@@ -16,7 +16,7 @@ insert into Protocols values (
 
 /*Load the Bitcoin property*/
 insert into smartproperties (Protocol, propertyid, issuer, createtxdbserialnum, lasttxdbserialnum, propertyname, propertytype, propertydata) values (
-     'Bitcoin', 0, 'Satoshi Nakamoto', -1, -1, 'BTC', 2, '{"name":"BTC", "blocktime":1231006505, "data":"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks", "issuer":"Satoshi Nakamoto", "url":"http://www.bitcoin.org", "propertyid":0 ,"divisible": true}');
+     'Litecoin', 0, 'Charlie Lee', -1, -1, 'LTC', 2, '{"name":"LTC", "blocktime":1317972665, "data":"NY Times 05/Oct/2011 Steve Jobs, Apple's Visionary, Dies at 56", "issuer":"Charlie Lee", "url":"http://www.litecoin.org", "propertyid":0 ,"divisible": true}');
 
 /*Load the list of Fiat Currencies we track */
 

@@ -76,8 +76,8 @@ while currentBlock <= endBlock:
   if height % 10 == 0 or currentBlock == initialBlock:
     print "Block", height, "of", endBlock
 
-  #Process Bitcoin Transacations
-  Protocol="Bitcoin"
+  #Process Litecoin Transacations
+  Protocol="Litecoin"
   #Prime tx sequence number based on number of tx
   x=len(block_data['result']['tx'])
   print  x, "BTC tx"

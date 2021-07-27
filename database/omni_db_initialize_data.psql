@@ -16,7 +16,7 @@ insert into Protocols values (
 
 /*Load the Bitcoin property*/
 insert into smartproperties (Protocol, propertyid, issuer, createtxdbserialnum, lasttxdbserialnum, propertyname, propertytype, propertydata) values (
-     'Litecoin', 0, 'Charlie Lee', -1, -1, 'LTC', 2, '{"name":"LTC", "blocktime":1317972665, "data":"NY Times 05/Oct/2011 Steve Jobs, Apple's Visionary, Dies at 56", "issuer":"Charlie Lee", "url":"http://www.litecoin.org", "propertyid":0 ,"divisible": true}');
+     'Litecoin', 0, 'Charlie Lee', -1, -1, 'LTC', 2, '{"name":"LTC", "blocktime":1317972665, "data":"NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56", "issuer":"Charlie Lee", "url":"http://www.litecoin.org", "propertyid":0 ,"divisible": true}');
 
 /*Load the list of Fiat Currencies we track */
 
